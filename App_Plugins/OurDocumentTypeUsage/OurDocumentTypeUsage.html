@@ -1,0 +1,31 @@
+﻿<div ng-controller="OurDocumentTypeUsageController">
+    <div ng-hide="listDocumentTypes">Loading document type usage</div>
+    <div ng-if="listDocumentTypes">
+        <h3>Summary</h3>
+        Document types: {{documentTypeCount}}<br />
+        Content nodes: {{contentNodeCount}}<br />
+        <div ng-if="listDocumentTypesNotInUse">
+            Unused document types:
+            <ul class="unstyled list-icons">
+                <li ng-repeat="item in listDocumentTypesNotInUse">
+                    <i class="icon-arrow-right"></i> {{item.Name}}
+                </li>
+            </ul>
+        </div>
+        <br />
+        <h4>Document Type Usage</h4>
+        <div ng-if="listDocumentTypes" ng-include="'nested.html'" ng-init="list = listDocumentTypes"></div>
+    </div>    
+</div>
+<script type="text/ng-template" id="nested.html">
+    <ul class="unstyled list-icons">
+        <li ng-repeat="item in list">
+            <div class="icon-arrow-right" style="white-space:nowrap">
+                {{item.Name}} <span ng-hide="item.Count == 0 && item.Children">({{item.Count}})</span>
+            </div>
+            <div ng-if="item.Children" ng-init="list = item.Children">
+                <span ng-include="'nested.html'"></span>
+            </div>
+        </li>
+    </ul>
+</script>

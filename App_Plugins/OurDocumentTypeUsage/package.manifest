@@ -1,0 +1,12 @@
+﻿{
+   propertyEditors: [{ 
+       alias: "OurDocumentTypeUsage"
+     , name:  "Document Type Usage"
+     , editor: {
+           view: "~/App_Plugins/OurDocumentTypeUsage/OurDocumentTypeUsage.html"
+       }
+   }]
+ , javascript: [
+     '~/App_Plugins/OurDocumentTypeUsage/OurDocumentTypeUsage.Controller.js'
+   ] 
+}
