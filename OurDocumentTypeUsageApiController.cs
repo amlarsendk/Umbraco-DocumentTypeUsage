@@ -8,7 +8,6 @@ using Umbraco.Web.WebApi;
 namespace Our.DocumentTypeUsage
 {
     [PluginController("OurDocumentTypeUsage")]
-    [IsBackOffice]
     public class OurDocumentTypeUsageApiController : UmbracoAuthorizedJsonController
     {
         public OurDocumentTypeUsageSummaryViewModel Get()
