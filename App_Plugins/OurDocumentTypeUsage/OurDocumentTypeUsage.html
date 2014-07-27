@@ -11,7 +11,7 @@
         <div class="spinner"></div>
     </div>
     <div ng-if="listDocumentTypes">
-        <h3>Summary</h3>
+        <h4>Summary</h4>
         Document types: {{documentTypeCount}}
         <br />
         Content nodes: {{contentNodeCount}}
@@ -32,7 +32,8 @@
 <script type="text/ng-template" id="nested.html">
     <ul class="unstyled list-icons">
         <li ng-repeat="item in list">
-            <div class="icon-arrow-right" style="white-space:nowrap">
+            <div style="white-space:nowrap">
+                <i class="icon-arrow-right"></i>
                 {{item.Name}} <span ng-hide="item.Count == 0 && item.Children">({{item.Count}})</span>
             </div>
             <div ng-if="item.Children" ng-init="list = item.Children">
