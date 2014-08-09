@@ -10,7 +10,19 @@ namespace Our.DocumentTypeUsage
     [PluginController("OurDocumentTypeUsage")]
     public class OurDocumentTypeUsageApiController : UmbracoAuthorizedJsonController
     {
+        private static OurDocumentTypeUsageSummaryViewModel _singleton = null;
+
         public OurDocumentTypeUsageSummaryViewModel Get()
+        {
+            if (_singleton == null)
+            {
+                return Get(true);
+            }
+
+            return _singleton;
+        }
+
+        public OurDocumentTypeUsageSummaryViewModel Get(bool refresh)
         {
             var context = ApplicationContext.Current;
             var serviceContext = context.Services;
@@ -50,6 +62,8 @@ namespace Our.DocumentTypeUsage
                 ContentNodeCount = list.Sum(c => c.Count),
                 DocumentTypeCount = countDocumentTypes
             };
+
+            _singleton = model;
 
             return model;
         }
