@@ -76,7 +76,7 @@
             </div>
         </div>
         <div style="clear: both"></div>
-        
+
         <div ng-if="listDocumentTypesNotInUse">
             <br />
             Unused document types:
@@ -97,6 +97,9 @@
             <div style="white-space:nowrap">
                 <i class="icon-arrow-right"></i>
                 {{item.Name}} <span ng-hide="item.Count == 0 && item.Children">({{item.Count}})</span>
+                <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                Documents: <span ng-repeat="doc in item.Documents">{{doc.id}}<span ng-if="$last == 0">, </span></span>
             </div>
             <div ng-if="item.Children" ng-init="list = item.Children">
                 <span ng-include="'nested.html'"></span>
