@@ -96,7 +96,7 @@
         <li ng-repeat="item in list">
             <div style="white-space:nowrap">
                 <i class="icon-arrow-right"></i>
-                {{item.Name}} <span ng-hide="item.Count == 0 && item.Children">({{item.Count}})</span> Documents: <span ng-repeat="doc in item.Documents">{{doc.id}}<span ng-if="$last == 0">, </span></span>
+                {{item.Name}} <span ng-hide="item.Count == 0 && item.Children">({{item.Count}})</span>
             </div>
             <div ng-if="item.Children" ng-init="list = item.Children">
                 <span ng-include="'nested.html'"></span>
