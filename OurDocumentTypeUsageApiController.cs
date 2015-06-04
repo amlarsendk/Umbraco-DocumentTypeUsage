@@ -53,7 +53,14 @@ namespace Our.DocumentTypeUsage
                         list.First(d => d.Id == item.ParentId).Children.Add(item);
                     }
                 }
+
+                foreach (var doc in contentService.GetContentOfContentType(item.Id))
+                {
+                    item.Documents.Add(new OurDocumentTypeUsageDocumentsModel(doc));
+                }
             }
+
+
 
             var model = new OurDocumentTypeUsageSummaryViewModel
             {
